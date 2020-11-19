@@ -1,0 +1,82 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login/stylelogin.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="left_area">
+            <h3><a href="/" style="text-decoration: none; color: white;">QC<span>Sama</span></a></h3>
+        </div>
+        <div class="right_area">
+            <a class="auth_btn" href="{% url 'demoregister' %}" style="color:white;">Đăng kí </a>
+        </div>
+    </header>
+
+
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="login">
+                <!--        Báo lỗi khi thông tin đăng nhập sai ...    -->
+            {% for key,value in form.errors.items %}
+                <h2 style="color:white;">{{value}}</h2>
+            {% endfor %}
+            <h1 style="color:white;">Đăng Nhập</h1>
+            <div class="textbox">
+                <i style="color: white;" class="fa fa-user" aria-hidden="true"></i>
+                {{ form.username }}
+            </div>
+            <div class="textbox">
+                <i style="color: white;" class="fa fa-lock" aria-hidden="true"></i>
+                {{ form.password }}
+            </div>
+            <input type="hidden" name="next" value="/">
+            <input style="color: white;" type="submit" class="btn" value="Đăng nhập">
+            <a href="{% url 'reset_password' %}" style="color: white;">Bạn quên mật khẩu?</a>
+            <br><br>
+                Bạn chưa có tài khoản? <a href="{% url 'demoregister' %}" style="color: orange;">Đăng kí</a>
+        </div>
+    </form>
+
+<!--    Facebook, YTB-->
+
+    <div class="content">
+            <br><br><br><br><br><br><br>
+        <div class="wrapper">
+            <div class="button">
+                <div class="icon">
+    <!--                <i class="fab fa-facebook-f" style="color: black;"></i>-->
+                    <a class="link" href="https://www.facebook.com/Quyetsama28/" target="_blank" style="text-decoration: none;"><i class="fab fa-facebook-f" style="color: black;"></i></a>
+                </div>
+                <a href="https://www.facebook.com/Quyetsama28/" target="_blank" style="text-decoration: none; color: white;">Facebook</a>
+            </div>
+        </div>
+
+                <br><br><br><br><br><br><br>
+
+        <div class="wrapper1">
+            <div class="button1">
+                <div class="icon1">
+                    <a class="link1" href="https://www.youtube.com/channel/UC4AiEFkzAKHTp5IKPtq-y1A?view_as=subscriber" target="_blank" style="text-decoration: none;"><i class="fab fa-youtube" style="color: black;"></i></a>
+                </div>
+                <a href="https://www.youtube.com/channel/UC4AiEFkzAKHTp5IKPtq-y1A?view_as=subscriber" target="_blank" style="text-decoration: none; color: white;">Youtube</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

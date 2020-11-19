@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login/styledemoregister_ok.css' %}">
+</head>
+<body>
+    <center>
+        <h1 style="color: orange;">Đăng ký thành công <3</h1>
+        <h1 style="color: orange;">Chào mừng {{username}}</h1>
+        <a href="{% url 'login' %}" style="color: white;">Đăng nhập ngay</a>
+    </center>
+</body>
+</html>

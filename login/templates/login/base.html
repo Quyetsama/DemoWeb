@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Chủ</title>
+<!--    dẫn đến file style.css-->
+    <link rel="stylesheet" href="{% static 'login/stylebase.css' %}">
+<!--    icon fb, ytb-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+<!--    icon sidebar-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+
+    <input type="checkbox" id="check">
+
+    <header>
+        <label for="check">
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+        </label>
+        <div class="left_area">
+            <h3><a href="/" style="text-decoration: none; color: white;">QC<span>Sama</span></a></h3>
+        </div>
+        <div class="right_area">
+            {% if user.username %}
+                <a class="auth_btn" href="{% url 'logout' %}" style="color:white;">Đăng xuất</a><a class="auth_btn" href="{% url 'change_password' %}" style="color:white;">Đổi mật khẩu</a>
+            {% else %}
+                <a class="auth_btn" href="{% url 'login' %}" style="color:white;"> Đăng nhập</a><a class="auth_btn" href="{% url 'demoregister' %}" style="color:white;">Đăng kí </a>
+            {% endif %}
+        </div>
+    </header>
+
+    {% if user.username %}
+        <div class="sidebar">
+                <center>
+                    <img src="static/login/user.jpg" class="profile_image" alt="">
+                    <h4>{{user.username}}</h4>
+                    <i style="color: yellow;" class="fas fa-dollar-sign"> Số dư: {{user.sodu}}</i>
+                </center>
+                <br>
+                <a href="/"><i class="fa fa-home" aria-hidden="true"><span> Trang chủ</span></i></a>
+                <a href="/"><i class="fa fa-user" aria-hidden="true"><span> Tài khoản</span></i></a>
+                <a href="{% url 'sellclone' %}"><i class="fa fa-shopping-cart" aria-hidden="true"><span> Mua clone</span></i></a>
+                <a href="/"><i class="fa fa-envelope" aria-hidden="true"><span> Liên hệ</span></i></a>
+                <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"><span> Đăng xuất</span></i></a>
+                <br>
+                <h5>Thông tin chủ shop</h5>
+                <h5>Số điện thoại: 0867985106</h5>
+                <h5>Momo: 0867985106</h5>
+                <h5>BIDV: 45210000558354</h5>
+                <h5 style="color: orange;">Chủ tài khoản: Nguyễn Văn Quyết</h5>
+        </div>
+    {% else %}
+        <div class="sidebar">
+                <h5>Thông tin chủ shop</h5>
+                <h5>Số điện thoại: 0867985106</h5>
+                <h5>Momo: 0867985106</h5>
+                <h5>BIDV: 45210000558354</h5>
+                <h5 style="color: orange;">Chủ tài khoản: Nguyễn Văn Quyết</h5>
+        </div>
+    {% endif %}
+
+    <div class="content">
+            <br><br><br><br><br><br><br>
+        <div class="wrapper">
+            <div class="button">
+                <div class="icon">
+    <!--                <i class="fab fa-facebook-f" style="color: black;"></i>-->
+                    <a class="link" href="https://www.facebook.com/Quyetsama28/" target="_blank" style="text-decoration: none;"><i class="fab fa-facebook-f" style="color: black;"></i></a>
+                </div>
+                <a href="https://www.facebook.com/Quyetsama28/" target="_blank" style="text-decoration: none; color: white;">Facebook</a>
+            </div>
+        </div>
+
+                <br><br><br><br><br><br><br>
+
+        <div class="wrapper1">
+            <div class="button1">
+                <div class="icon1">
+                    <a class="link1" href="https://www.youtube.com/channel/UC4AiEFkzAKHTp5IKPtq-y1A?view_as=subscriber" target="_blank" style="text-decoration: none;"><i class="fab fa-youtube" style="color: black;"></i></a>
+                </div>
+                <a href="https://www.youtube.com/channel/UC4AiEFkzAKHTp5IKPtq-y1A?view_as=subscriber" target="_blank" style="text-decoration: none; color: white;">Youtube</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<!--    style="text-decoration: none;" để bỏ dấu gạch chân-->
+<!--        Quay về trang chủ-->
+<!--    <a class="trangchu" href="/" style="text-decoration: none;">Demo Web</a>-->
+
+
+<!--    <br><br><br><br><br><br><br>-->
+<!--    <div class="wrapper">-->
+<!--        <div class="button">-->
+<!--            <div class="icon">-->
+<!--&lt;!&ndash;                <i class="fab fa-facebook-f" style="color: black;"></i>&ndash;&gt;-->
+<!--                <a class="link" href="https://www.facebook.com/Quyetsama28/" target="_blank" style="text-decoration: none;"><i class="fab fa-facebook-f" style="color: black;"></i></a>-->
+<!--            </div>-->
+<!--            <a href="https://www.facebook.com/Quyetsama28/" target="_blank" style="text-decoration: none; color: white;">Facebook</a>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--            <br><br><br><br><br><br><br>-->
+
+<!--    <div class="wrapper1">-->
+<!--        <div class="button1">-->
+<!--            <div class="icon1">-->
+<!--                <a class="link1" href="https://www.youtube.com/channel/UC4AiEFkzAKHTp5IKPtq-y1A?view_as=subscriber" target="_blank" style="text-decoration: none;"><i class="fab fa-youtube" style="color: black;"></i></a>-->
+<!--            </div>-->
+<!--            <a href="https://www.youtube.com/channel/UC4AiEFkzAKHTp5IKPtq-y1A?view_as=subscriber" target="_blank" style="text-decoration: none; color: white;">Youtube</a>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+<!--    <div class="col-sm-1">-->
+<!--        {% if user.username %}-->
+<!--            <p style="text-align: right; color:yellow;"  >Xin chào {{user.username}}</p>-->
+<!--            <p style="text-align: right; color:yellow;"  >Email: {{user.email}}</p>-->
+<!--            <p style="text-align: right; color:yellow;"  >Số dư: {{user.sodu}}</p>-->
+<!--            <p style="text-align: right;"><a href="{% url 'logout' %}" style="color:white;">Đăng xuất</a></p>-->
+<!--            <p style="text-align: right;"><a href="{% url 'change_password' %}" style="color:white;">Đổi mật khẩu</a></p>-->
+<!--        {% else %}-->
+<!--            <p style="text-align: right;"><a href="{% url 'demoregister' %}" style="color:orange;">Đăng kí </a>|<a href="{% url 'login' %}" style="color:orange;"> Đăng nhập</a></p>-->
+<!--        {% endif %}-->
+<!--    </div>-->
+
+
+
+<div class= "base">
+    {%  block content123 %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

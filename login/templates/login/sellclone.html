@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Mua clone</h1>
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            {% if user.username %}
+            <div>
+                <select name="loai">
+                    <option value="1">Loại 1 5000Đ</option>
+                    <option value="2">Loại 2 10000Đ</option>
+                    <option value="3">Loại 3 12000Đ</option>
+                    <option value="4">Loại 4 15000Đ</option>
+                    <option value="5">Loại 5 20000Đ</option>
+                    <option value="6">Loại 6 25000Đ</option>
+                </select>
+            </div>
+            <br>
+                <input type="hidden" value="{{ user.sodu }}" name="sodu">
+                <input type="hidden" value="{{ user.username }}" name="username">
+                <input type="hidden" value="{{ user.id }}" name="id">
+                <input type="number" value="1" name="sl">
+                <input type="submit" value="OK">
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

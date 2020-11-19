@@ -1,0 +1,30 @@
+{% extends 'login/base.html' %}
+
+{% block content123 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login/styleregister.css' %}">
+</head>
+<body>
+    <center>
+<!--        action='.'để load lại tragn khi ấn Đăng kí-->
+        <form class="box1" action="." method="post">
+            {% csrf_token %}
+<!--            .as_p để xếp theo từng hàng-->
+            <h2 style="color:orange;">{{ form.as_p }}</h2>
+<!--            <h2 style="color:orange;">{{ form.sodu }}</h2>-->
+<!--            {{ form.username }}-->
+<!--            {{ form.email }}-->
+<!--            {{ form.password1 }}-->
+<!--            {{ form.password2 }}-->
+            <input type="submit" value="Đăng kí">
+        </form>
+    </center>
+</body>
+</html>
+{% endblock %}
+

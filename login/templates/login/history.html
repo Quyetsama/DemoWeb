@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>-->
+<!--<script>-->
+<!--    $(document).ready(function () {-->
+<!--    function saveTextAsFile() {-->
+<!--    var textToWrite = document.getElementById("content").value;-->
+<!--    var textFileAsBlob = new Blob([textToWrite], { type: 'text/plain' });-->
+<!--    var fileNameToSaveAs = "myNewFile.txt";-->
+<!--    var downloadLink = document.createElement("a");-->
+<!--    downloadLink.download = fileNameToSaveAs;-->
+<!--    downloadLink.innerHTML = "My Hidden Link";-->
+<!--    window.URL = window.URL || window.webkitURL;-->
+<!--    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);-->
+<!--    downloadLink.onclick = destroyClickedElement;-->
+<!--    downloadLink.style.display = "none";-->
+<!--    document.body.appendChild(downloadLink);-->
+<!--    downloadLink.click();-->
+<!--    }-->
+<!--    function destroyClickedElement(event) {-->
+<!--    document.body.removeChild(event.target);-->
+<!--    }-->
+<!--    $("#download").click(function (e) {-->
+<!--    e.preventDefault();-->
+<!--    saveTextAsFile();-->
+<!--    });-->
+<!--    });-->
+<!--</script>-->
+</head>
+<body>
+    <h1>Lịch sử mua hàng</h1>
+    {% if user.username %}
+        {% for item in history reversed %}
+            <h1>Loại: {{ item.clone_id }} | Số lượng: {{ item.so_luong }} | Thời gian: {{ item.time_pub }}</h1>
+    <!--        <textarea rows="4" cols="30">{{ item.list_clone }}</textarea>-->
+                {{ item.list_clone | linebreaks }}
+    <!--            <input type="button" id="download" value="Download" />-->
+    <!--            <textarea id="content">{{ item.list_clone}}</textarea>-->
+        {% endfor %}
+    {% else %}
+        {{history}}<a href="{% url 'login' %}">Đăng nhập ngay</a>
+    {% endif %}
+</body>
+</html>
